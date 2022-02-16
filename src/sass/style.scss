@@ -6,6 +6,11 @@
     max-width: 950px;
     margin: 0 auto;
 }
+@media (max-width: 991px) {
+    .container {
+        padding: 0 20px;
+    }
+}
 @import 'blocks/promo';
 @import 'blocks/header';
 @import 'blocks/buttons';
