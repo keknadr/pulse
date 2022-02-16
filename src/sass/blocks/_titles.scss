@@ -3,4 +3,27 @@
     font-size: 30px;
     font-weight: 700;
     text-align: center;
+    text-transform: uppercase;
+    &_left {
+        color: #ffffff;
+        font-size: 36px;
+        text-align: left;
+        line-height: 42px;
+    }
+}
+
+@media (max-width: 991px) {
+    .title {
+        &_left {
+            // font-size: 25px;
+        }
+    }
+}
+@media (max-width: 575px) { 
+    .title {
+        &_left {
+            text-align: center;
+            font-size: 33px;
+        }
+    }
 }
