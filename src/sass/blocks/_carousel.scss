@@ -1,0 +1,100 @@
+.carousel {
+    padding: 81px 0 82px 0;
+    &__inner {
+        position: relative;
+        width: 750px;
+        margin: 0 auto;
+        img {
+            width: 100%;
+        }
+    }
+    .slick-prev, .slick-next {
+        position: absolute;
+        background-color: #fff;
+        border: none;
+        left: -102px;
+        top: 50%;
+        transform: translateY(-50%);
+        img {
+            width: 31px;
+            height: 50px;
+        }
+    }
+    .slick-next {
+        left: auto;
+        right: -102px;
+    }
+    
+}
+
+@media (max-width: 991px) {
+    .carousel {
+        &__inner {
+            width: 560px;
+        }
+        .slick-prev {
+            left: -70px
+        }
+        .slick-next {
+            right: -70px;
+            left: auto;
+        }
+    }
+}
+@media (max-width: 768px) {
+    .carousel {
+        &__inner {
+            width: 75%;
+        }
+        .slick-dots {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            & li {
+                position: relative;
+                display: inline-block;
+                margin: 0 5px;
+                cursor: pointer;
+            }
+            & button {
+                display: block;
+                width: 20px;
+                height: 20px;
+                padding: 5px;
+                color: transparent;
+                border: 0;
+                outline: none;
+                background: transparent;
+                &::before {
+                    font-size: 15px;
+                    line-height: 20px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 20px;
+                    height: 20px;
+                    content: '•';
+                    text-align: center;
+                    opacity: .25;
+                    color: black;
+                }
+            }
+            .slick-active {
+                button {
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 575px) {
+    .carousel {
+        padding-top: 60px;
+        &__inner {
+            width: 85%;
+        }
+    }
+}
