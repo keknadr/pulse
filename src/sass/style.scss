@@ -4,6 +4,7 @@
 }
 .container {
     position: relative;
+    z-index: 2;
     max-width: 950px;
     margin: 0 auto;
 }
@@ -22,3 +23,4 @@
 @import 'blocks/carousel';
 @import 'blocks/catalog';
 @import 'blocks/reviews';
+@import 'blocks/footer';
