@@ -72,7 +72,12 @@
     .button {
         &:hover {
             color: #fff;
-            background-color: $main-color;
+            // background-color: $main-color;
+        }
+        &_alternative_animation {
+            &:hover {
+                background: $main-color;
+            }
         }
         &:after {
             content: none;
