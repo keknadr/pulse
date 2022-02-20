@@ -56,6 +56,16 @@
     }
 }
 
+@media (max-width: 991px) {
+    .button {
+        &:hover {
+            color: #fff;
+        }
+        &:after {
+            content: none;
+        }
+    }
+}
 @media (max-width: 575px) {
     .button {
         width: 120px;
