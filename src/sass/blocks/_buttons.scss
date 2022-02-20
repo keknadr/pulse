@@ -54,12 +54,25 @@
         height: 40px;
         font-size: 14px;
     }
+    &_alternative_animation {
+        transition: none;
+        border: none;
+        &:hover {
+            color: #fff;
+            background: linear-gradient(to top, $main-color, rgb(255, 0, 0));
+
+        }
+        &:after {
+            content: none;
+        }
+    }
 }
 
 @media (max-width: 991px) {
     .button {
         &:hover {
             color: #fff;
+            background-color: $main-color;
         }
         &:after {
             content: none;
