@@ -36,20 +36,20 @@ $(document).ready(function () {
 
 	// Modal
 
-	$('[data-modal=consultation]').on('click', function() {
+	$('[data-modal=consultation]').on('click', function () {
 		$('.overlay, #consultation').fadeIn();
 	});
 
-	$('.modal__close').on('click', function() {
+	$('.modal__close').on('click', function () {
 		$('.overlay, #consultation, #order, #thanks').fadeOut();
 	});
 
-	$('.button_mini').on('click', function() {
+	$('.button_mini').on('click', function () {
 		$('.overlay, #order').fadeIn();
 	});
 
-	$('.button_mini').each(function(i) {
-		$(this).on('click', function() {
+	$('.button_mini').each(function (i) {
+		$(this).on('click', function () {
 			$('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
 			$('.overlay, #order').fadeIn('fast');
 		})
@@ -81,7 +81,7 @@ $(document).ready(function () {
 					email: 'Неправильно введена почта'
 				}
 			}
-		}); 
+		});
 	};
 
 	validateForm('#consultation-form');
@@ -89,4 +89,45 @@ $(document).ready(function () {
 	validateForm('#order form');
 
 	$('input[name=phone]').mask("+7 (999) 999-99-99");
+
+	// $('form').submit(function(e) {
+	// 	e.preventDefault();
+	// 	$.ajax({
+	// 		type: "POST",
+	// 		url: "../mailer/smart.php",
+	// 		data: $(this).serialize()
+	// 	}).done(function() {
+	// 		$(this).find("input").val("");
+
+	// 		$("form").trigger("reset");
+	// 	});
+	// 	return false;
+	// });
+	$('form').submit(function (e) {
+		e.preventDefault();
+		$.ajax({
+			type: "POST",
+			url: "mailer/smart.php",
+			data: $(this).serialize()
+		}).done(function () {
+			$(this).find("input").val("");
+			$('#consultation, #order').fadeOut();
+			$('.overlay, #thanks').fadeIn('slow');
+
+			$('form').trigger('reset');
+		});
+		return false;
+	});
+
+	// Smooth scroll and pageup
+
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 1600) {
+			$('.pageup').fadeIn();
+		} else {
+			$('.pageup').fadeOut();
+		}
+	});
+
+	new WOW().init();
 });
